@@ -8,7 +8,7 @@ Tested with Python 3.7.9.
 
 ## The Script
 
-PyDataSplit is a Python script that splits the dataset into training and test sets by random sampling from the original dataset and optionally balances the dataset by augmenting classes smaller in size relative to the largest class. If balancing is enabled, it can also optionally perform global augmentation. Meaning that the number of images in each class can be increased by a global multiplier. The script also creates a CSV file with label to filename mappings for the training and test sets.
+PyDataSplit is a Python script that splits your image dataset into training and test sets by random sampling from the original dataset and optionally balances the dataset by augmenting classes smaller in size relative to the largest class. If balancing is enabled, it can also optionally perform global augmentation. Meaning that the number of images in each class can be increased by a global multiplier. The script also creates a CSV file with label to filename mappings for the training and test sets.
 
 The augmentation pipeline used it the script is created using the [Albumentations](https://albumentations.ai/) library. The pipeline is a composition of transformations that are applied to the images and is defined like this:
 
@@ -42,14 +42,15 @@ Before running the script, make sure that the dataset is downloaded and extracte
 ```text
 your_dataset_folder
 └── train
-    ├── anger
-    ├── contempt
-    ├── disgust
-    ├── fear
-    ├── happy
-    ├── neutral
-    ├── sad
-    └── surprise
+    ├── class1
+    │   ├── image1.jpg
+    │   ├── image2.jpg
+    │   └── ...
+    ├── class2
+    │   ├── image1.jpg
+    │   ├── image2.jpg
+    │   └── ...
+    └── ...
 ```
 
 The script will create a `test` subdirectory in the directory and will move part of the images from the `train` subdirectory to the `test` subdirectory. This means that the default behavior of the script is to overwrite the input directory. The script will also create a `train.csv` and `test.csv` files in the directory. The `train.csv` file will contain the label to filename mappings for the training set and the `test.csv` file will contain the label to filename mappings for the test set.
