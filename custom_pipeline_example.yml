@@ -1,0 +1,60 @@
+__version__: 1.3.0
+transform:
+  __class_fullname__: Compose
+  additional_targets: {}
+  bbox_params: null
+  keypoint_params: null
+  p: 1.0
+  transforms:
+  - __class_fullname__: HorizontalFlip
+    always_apply: false
+    p: 0.5
+  - __class_fullname__: RandomBrightnessContrast
+    always_apply: true
+    brightness_by_max: true
+    brightness_limit:
+    - -0.2
+    - 0.2
+    contrast_limit:
+    - -0.2
+    - 0.2
+    p: 0.5
+  - __class_fullname__: OneOf
+    p: 0.5
+    transforms:
+    - __class_fullname__: MotionBlur
+      allow_shifted: true
+      always_apply: true
+      blur_limit:
+      - 3
+      - 7
+      p: 0.5
+    - __class_fullname__: GaussNoise
+      always_apply: true
+      mean: 0
+      p: 0.5
+      per_channel: true
+      var_limit:
+      - 10.0
+      - 50.0
+    - __class_fullname__: GaussianBlur
+      always_apply: true
+      blur_limit:
+      - 3
+      - 7
+      p: 0.5
+      sigma_limit:
+      - 0
+      - 0
+  - __class_fullname__: Rotate
+    always_apply: true
+    border_mode: 1
+    crop_border: false
+    interpolation: 1
+    limit:
+    - -20
+    - 20
+    mask_value: null
+    p: 0.5
+    rotate_method: largest_box
+    value: null
