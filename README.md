@@ -57,8 +57,6 @@ The script will create a `test` subdirectory in the directory and will move part
 
 If the script is ran with a specified output path, the script will first copy the images from the `train` subdirectory in the input directory to the `train` subdirectory in the output directory and will create the `test` subdirectory in the output directory. The `train.csv` and `test.csv` files will be created in the output directory. If the output directory does not exist, it will be created. If the output directory exists, it can only contain an empty `train` subdirectory or can be empty completely.
 
-The script is universal and can be used for any dataset that has the same structure (dataset with a train subdirectory with images in subdirectories named after the labels).
-
 ## Running the Script
 
 The script is available in the [`src/datasplit.py`](./src/datasplit.py) file. It can be run following this pattern:
